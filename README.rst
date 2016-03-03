@@ -58,7 +58,7 @@ information of articles published in the *American Economic Review*.
     # Establish AEAweb connection object.
     >>> conn = AER(login=deets)
 	
-    # Download the HTML of the JSTOR webpage for the article with document id 10.1068/682574.
+    # Download the HTML of the *AER* article with document id 10.1257/aer.20140289.
     >>> doc_id = '10.1257/aer.20140289'
     >>> html = conn.html(id=doc_id)
 	
