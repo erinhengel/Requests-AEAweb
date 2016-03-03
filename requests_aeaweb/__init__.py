@@ -1,26 +1,26 @@
 #-*- coding: utf-8 -*-
 
 """
-Requests-Raven is a custom Requests class to log onto Raven, the University of Cambridge's central
-web authentication service. Basic usage for returning a Requests session object:
+Requests-AEAweb is a custom Requests class to log onto AEAweb.org, the website of the
+American Economic Association. Basic usage for returning a Requests session object:
     
-    >>> from requests_raven import Raven
-    >>> deets = {'userid': 'ab123', 'pwd': 'XXXX'}
-    >>> conn = Raven(url='http://qje.oxfordjournals.org', login=deets)
+    >>> from requests_aeaweb import AEAweb
+    >>> deets = {'username': 'someuser', 'password': 'XXXX'}
+    >>> conn = AEAweb(login=deets)
     >>> s = conn.session
     
-JSTOR, EBSCOhost and Wiley are Raven subclasses specifically for logging onto www.jstor.org,
-www.ebscohost.com and onlinelibrary.wiley.com, respectively.
+The AER subclass contains methods to download the webpage HTML, PDF
+and bibliographic information of articles published in the Amercan Economic Review.
     
-    >>> from requests_raven import JSTOR
-    >>> doc_id = '10.1086/682574'
-    >>> conn = JSTOR(login=deets)
+    >>> from requests_aeaweb import AER
+    >>> doc_id = '10.1257/aer.20140289'
+    >>> conn = AER(login=deets)
     >>> html = conn.html(id=doc_id)
     >>> pdf = conn.pdf(id=doc_id, file='article.pdf')
     
 Full documentation at <http://www.erinhengel.com/software/requests-aeaweb>.
 
-:copyright: (c) 2015 by Erin Hengel.
+:copyright: (c) 2016 by Erin Hengel.
 :license: Apache 2.0, see LICENSE for more details.
 """
 

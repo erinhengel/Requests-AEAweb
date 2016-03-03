@@ -48,7 +48,7 @@ with all the methods of the main `Requests API <http://requests.readthedocs.org/
     'AEAweb: AER (106,3) p. 525 - University Differences in the Graduation of Minorities in STEM Fields: Evidence from California'
 
 
-The ``AER`` subclass contains the ``html``, ``pdf`` and ``ref`` mdethods to download the webpage HTML, PDF and bibliographic
+The ``AER`` subclass contains the ``html``, ``pdf`` and ``ref`` methods to download the webpage HTML, PDF and bibliographic
 information of articles published in the *American Economic Review*.
 
 .. code-block:: python
