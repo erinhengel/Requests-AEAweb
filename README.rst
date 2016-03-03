@@ -49,7 +49,7 @@ with all the methods of the main `Requests API <http://requests.readthedocs.org/
 
 
 The ``AER`` subclass contains the ``html``, ``pdf`` and ``ref`` mdethods to download the webpage HTML, PDF and bibliographic
-information of articles published in the *American Economic Review*.
+information of articles published in the `*American Economic Review* <https://www.aeaweb.org/aer/issues.php>`_.
 
 .. code-block:: python
     
@@ -58,7 +58,7 @@ information of articles published in the *American Economic Review*.
     # Establish AEAweb connection object.
     >>> conn = AER(login=deets)
 	
-    # Download the HTML of the *AER* article with document id 10.1257/aer.20140289.
+    # Download the HTML of the article with document id 10.1257/aer.20140289.
     >>> doc_id = '10.1257/aer.20140289'
     >>> html = conn.html(id=doc_id)
 	
