@@ -32,11 +32,11 @@ with all the methods of the main `Requests API <http://requests.readthedocs.org/
 	
     # Establish AEAweb connection object.
     >>> deets = {'username': 'someuser', 'password': 'XXXX'}
-    >>> conn = Raven(login=deets)
+    >>> conn = AEAweb(login=deets)
 	
     # Use session attribute to access Requests methods.
     >>> url = '{}/articles.php'.format(conn.url)
-	>>> payload = {'doi': '10.1257/aer.20130626'}
+    >>> payload = {'doi': '10.1257/aer.20130626'}
     >>> request = conn.session.get(url, params=payload)
     >>> request.status_code
     200
@@ -45,18 +45,18 @@ with all the methods of the main `Requests API <http://requests.readthedocs.org/
     >>> from bs4 import BeautifulSoup
     >>> soup = BeautifulSoup(request.text, 'html.parser')
     >>> soup.title
-    <title>AER (106,3) p. 525 - University Differences in the Graduation of Minorities in STEM Fields: Evidence from California</title>
+    'AEAweb: AER (106,3) p. 525 - University Differences in the Graduation of Minorities in STEM Fields: Evidence from California'
 
 
 The ``AER`` subclass contains the ``html``, ``pdf`` and ``ref`` mdethods to download the webpage HTML, PDF and bibliographic
-information of articles published in the *American Economic Review*s.
+information of articles published in the *American Economic Review*.
 
 .. code-block:: python
     
-    >>> from requests_aeaweb import JSTOR
+    >>> from requests_aeaweb import AER
 	
     # Establish AEAweb connection object.
-    >>> conn = AEAweb(login=deets)
+    >>> conn = AER(login=deets)
 	
     # Download the HTML of the JSTOR webpage for the article with document id 10.1068/682574.
     >>> doc_id = '10.1257/aer.20140289'
@@ -68,5 +68,5 @@ information of articles published in the *American Economic Review*s.
     # Download the bibliographic information.
     >>> biblio = conn.ref(id=doc_id)
     >>> biblio['Authors']
-    [{'Name': 'Per Krusell'}, {'name': 'Anthony A. Smith'}]
+    [{'Affiliation': 'Johns Hopkins U', 'Name': 'Korinek, Anton'}, {'Affiliation': 'MIT', 'Name': 'Simsek, Alp'}]
 
