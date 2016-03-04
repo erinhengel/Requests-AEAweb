@@ -55,7 +55,7 @@ information of articles published in the *American Economic Review*.
 
 .. code-block:: python
     
-    >>> from requests_aeaweb import AER
+    >>> from requests_aeaweb import AER.
 	
     # Establish AEAweb connection object via AER
     >>> conn = AER(login=deets)
