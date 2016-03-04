@@ -1,5 +1,5 @@
-Requests-Raven
-==============
+Requests-AEAweb
+===============
 
 Requests-AEAweb is a custom `Requests <http://requests.readthedocs.org/en/latest/>`_ class to log onto `AEAweb.org <https://www.aeaweb.org>`_, the website of the American Economic Association.
 
@@ -15,7 +15,7 @@ Installation
 Documentation
 -------------
 
-Detailed documentation available at `erinhengel.com/software/requests_aeaweb <http://www.erinhengel.com/software/requests-aeaweb/>`_. 
+Detailed documentation available at `www.erinhengel.com/software/requests-aeaweb <http://www.erinhengel.com/software/requests-aeaweb/>`_. 
 
 
 Quickstart

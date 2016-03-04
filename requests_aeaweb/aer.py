@@ -32,10 +32,10 @@ class AER(AEAweb):
         soup = BeautifulSoup(request.text, 'html.parser')
         try:
             url = soup.meta['content'].replace('0;url=', '')
+            request = self.session.get(url)
         except TypeError:
-            url = '{}/doi/pdfplus/{}'.format(self.url, id)
+            pass
         
-        request = self.session.get(url)
         if 'application/pdf' in request.headers['Content-Type']:
             mypdf = request.content
             if file:
@@ -101,13 +101,19 @@ class AER(AEAweb):
                     bibtex['Abstract'] = jel_regex3_match.group(1).strip()
     
         bibtex['Volume'] = int(bibtex['Volume'])
+        
+        # First and last pages sometimes, e.g., 1033-80; turn them into 1033 and 1080.
         bibtex['FirstPage'] = int(bibtex['FirstPage'])
         bibtex['LastPage'] = int(bibtex['LastPage'])
+        if bibtex['LastPage'] < bibtex['FirstPage']:
+            substr = len(str(bibtex['FirstPage'])) - len(str(bibtex['LastPage']))
+            assert substr == 1 or substr == 2
+            bibtex['LastPage'] = int(str(bibtex['FirstPage'])[:substr] + str(bibtex['LastPage']))
+            assert bibtex['LastPage'] > bibtex['FirstPage']
 
         date = bibtex['PubDate'].split('/')
         bibtex['PubDate'] = '{}-{}-01'.format(date[0], date[1].zfill(2))
-    
-    
+        
         # JEL codes.
         # First look for text in JEL Classification heading of html.
         jel_text = soup.find(string=re.compile('JEL Classifications'))
@@ -132,9 +138,17 @@ class AER(AEAweb):
                         bibtex['JEL'] = [x for x in re.split('\W+', jel_regex3_match.group(2)) if x]
 
         for author in soup.find_all(attrs={'name': 'citation_author'}):
-            bibtex['Authors'].append({
-                'Name': author['content'],
-                'Affiliation': author.next_element['content']
-            })
+            try:
+                if author.next_element['name'] == 'citation_author_institution':
+                    bibtex['Authors'].append({
+                        'Name': author['content'],
+                        'Affiliation': author.next_element['content']
+                    })
+                else:
+                    bibtex['Authors'].append({'Name': author['content']})
+            except KeyError:
+                bibtex['Authors'].append({'Name': author['content']})
+
+                
         
         return bibtex
