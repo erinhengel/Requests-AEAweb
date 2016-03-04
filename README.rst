@@ -22,8 +22,9 @@ Detailed documentation available at `www.erinhengel.com/software/requests-aeaweb
 Quickstart
 ----------
 
-The ``AEAweb`` class logs onto AEAweb.orgn and establishes a connection with the host. The ``session`` attribute
-returns a `Request Session object <http://requests.readthedocs.org/en/latest/user/advanced/#session-objects>`_
+The ``AEAweb`` class logs onto `AEAweb.org <https://www.aeaweb.org>`_ and establishes a connection with the host.
+The ``session`` attribute returns a
+`Request Session object <http://requests.readthedocs.org/en/latest/user/advanced/#session-objects>`_
 with all the methods of the main `Requests API <http://requests.readthedocs.org/en/latest/>`_.
 
 
