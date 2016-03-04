@@ -6,7 +6,6 @@ Requests-AEAweb is a custom `Requests <http://requests.readthedocs.org/en/latest
 
 Installation
 ------------
-*Curently can only be downloaded from source; available on pip very soon.*
 	
 .. code-block:: bash
 
