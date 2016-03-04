@@ -16,6 +16,7 @@ and bibliographic information of articles published in the Amercan Economic Revi
     >>> doc_id = '10.1257/aer.20140289'
     >>> conn = AER(login=deets)
     >>> html = conn.html(id=doc_id)
+    >>> ref = conn.ref(id=doc_id)
     >>> pdf = conn.pdf(id=doc_id, file='article.pdf')
     
 Full documentation at <http://www.erinhengel.com/software/requests-aeaweb>.

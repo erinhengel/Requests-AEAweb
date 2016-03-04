@@ -14,7 +14,7 @@ setup(
     author='Erin Hengel',
     url='http://www.erinhengel.com/software/requests-aeaweb/',
     packages = ['requests_aeaweb'],
-    install_requires=['requests>=2.9.1', 'beautifulsoup4>=4.4.1', 'bibtexparser>=0.6.1', 'xmltodict>=0.9.2'],
+    install_requires=['requests>=2.9.1', 'beautifulsoup4>=4.4.1'],
     package_data={'': ['README.rst', 'LICENSE']},
     include_package_data=True,
     author_email='erin.hengel@gmail.com',

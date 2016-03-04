@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from bs4 import BeautifulSoup
-import requests
 import sys
 import traceback
 import re
 import getpass
+from bs4 import BeautifulSoup
+import requests
 
 class AEAweb(object):
     """ Creates a custom Requests class to authenticate AEAweb user.

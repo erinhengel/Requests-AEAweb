@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from requests_aeaweb import AEAweb
-from bs4 import BeautifulSoup
 import re
+from bs4 import BeautifulSoup
+from requests_aeaweb import AEAweb
 
 class AER(AEAweb):
     """ Create AEAweb connection to www.aeaweb.com.
