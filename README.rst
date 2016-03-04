@@ -55,9 +55,9 @@ information of articles published in the *American Economic Review*.
 
 .. code-block:: python
     
-    >>> from requests_aeaweb import AER.
+    >>> from requests_aeaweb import AER
 	
-    # Establish AEAweb connection object via AER
+    # Establish AEAweb connection object via AER.
     >>> conn = AER(login=deets)
 	
     # Download the HTML of the article with document id 10.1257/aer.20140289.
