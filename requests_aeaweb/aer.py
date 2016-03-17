@@ -11,7 +11,7 @@ class AER(AEAweb):
         Download PDF of AER articles.
     """
     def __init__(self, login):
-        # Establish a Raven connection object.
+        # Establish an AEAweb connection object.
         AEAweb.__init__(self, login=login)
     
     def html(self, id):
@@ -57,8 +57,7 @@ class AER(AEAweb):
         """ Download bibliographic data of document.
             If affiliation, find institutions affiliated with authors. """
 
-        # Get the webpage of the document. Using parameters from initial GET,
-        # construct URL to access EBSCOhost's bibliography export function.
+        # Get the webpage of the document.
         html = self.html(id=id)
         soup = BeautifulSoup(html, 'html.parser')
     
